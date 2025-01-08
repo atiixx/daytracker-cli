@@ -23,17 +23,14 @@ type ConfigData struct {
 
 func main() {
 	fmt.Println("Welcome to the day tracker. Select an answer from the possible choices or just type directly if no choices are presented.\nPress Enter if you want to choose the default choice displayed in the brackets.")
-	var csv_filepath, csv_filename string
+	var csv_filename, csv_filepath string
 	var questions []Question
-	csv_filepath, csv_filename, questions = load_config()
+	csv_filename, csv_filepath, questions = load_config()
 	var selected_answers map[string]string = start_questions(questions)
-	fmt.Println(selected_answers)
-	fmt.Println(csv_filename)
-	fmt.Println(csv_filepath)
 	// => load existing csv
 	// => check if field names changed: if yes prompt user if it wants to create new one
 	// => save answers to csv
-	SaveDataToCSV()
+	HandleCSV(selected_answers, csv_filename, csv_filepath)
 }
 
 // Load config from config.json file
