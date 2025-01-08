@@ -1,7 +1,7 @@
-package questions
+package main
 
 import "fmt"
 
-func Start_questions() {
+func start_questions() {
 	fmt.Println("start questions")
 }
