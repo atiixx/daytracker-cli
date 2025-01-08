@@ -3,86 +3,86 @@
   "questions": [
     {
       "ID": 1,
-      "title": "Name:",
+      "title": "Name",
       "answers": [],
-      "default": "Jonas",
+      "default_value": "Jonas",
       "csv": "name"
     },
     {
       "ID": 2,
-      "title": "How do you feel?",
+      "title": "💕 How do you feel?",
       "answers": ["Very good", "Good", "Okay", "Not good", "Bad", "Very bad"],
-      "default": "Good",
+      "default_value": "2",
       "csv": "feel"
     },
     {
       "ID": 3,
-      "title": "How is the weather?",
+      "title": "☀️ How is the weather?",
       "answers": ["Sunny", "Grey", "Rainy", "Snow", "Mixed"],
-      "default": "Sunny",
+      "default_value": "1",
       "csv": "weather"
     },
     {
       "ID": 4,
-      "title": "How many hours physical exercise?",
-      "answers": [],
-      "default": "1",
+      "title": "🏅 Did you exercise today?",
+      "answers": ["Yes", "No"],
+      "default_value": "1",
       "csv": "exercise"
     },
     {
       "ID": 5,
-      "title": "How did you sleep last night?",
+      "title": "💤 How did you sleep last night?",
       "answers": ["Good", "Okay", "Bad"],
-      "default": "Good",
+      "default_value": "1",
       "csv": "sleep_quality"
     },
     {
       "ID": 6,
-      "title": "How many hours did you sleep last night?",
-      "answers": [],
-      "default": "8",
+      "title": "😴 How many hours did you sleep last night?",
+      "answers": ["1-6 hours", "7-9 hours", "more then 9 hours"],
+      "default_value": "2",
       "csv": "sleep_duration"
     },
     {
       "ID": 7,
-      "title": "Did you read a book?",
+      "title": "📗 Did you read a book?",
       "answers": ["Yes", "No"],
-      "default": "Yes",
+      "default_value": "1",
       "csv": "book"
     },
     {
       "ID": 8,
-      "title": "Did you watch a movie or tv show?",
+      "title": "🎬 Did you watch a movie or tv show?",
       "answers": ["Yes", "No"],
-      "default": "Yes",
+      "default_value": "1",
       "csv": "movie"
     },
     {
       "ID": 9,
-      "title": "Did you play games?",
+      "title": "🎮 Did you play games?",
       "answers": ["Yes", "No"],
-      "default": "Yes",
+      "default_value": "1",
       "csv": "game"
     },
     {
       "ID": 10,
-      "title": "Did you do any work?",
+      "title": "🏢 Did you do any work?",
       "answers": ["Yes", "No"],
-      "default": "Yes",
+      "default_value": "1",
       "csv": "work"
     },
     {
       "ID": 11,
-      "title": "Did you work on a productive hobby?",
+      "title": "💻 Did you work on a productive hobby?",
       "answers": ["Yes", "No"],
-      "default": "Yes",
+      "default_value": "1",
       "csv": "productive"
     },
     {
       "ID": 12,
-      "title": "Was it hot today (> 20 C)?",
+      "title": "🔥 Was it hot today (> 20 C)?",
       "answers": ["Yes", "No"],
-      "default": "Yes",
+      "default_value": "1",
       "csv": "hot"
     }
   ]
