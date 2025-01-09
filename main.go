@@ -26,7 +26,7 @@ func main() {
 	var csv_filename, csv_filepath string
 	var questions []Question
 	csv_filename, csv_filepath, questions = load_config()
-	var selected_answers map[string]string = start_questions(questions)
+	var selected_answers [][]string = start_questions(questions)
 	// => load existing csv
 	// => check if field names changed: if yes prompt user if it wants to create new one
 	// => save answers to csv

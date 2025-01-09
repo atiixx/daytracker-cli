@@ -2,13 +2,17 @@ package main
 
 import (
 	"fmt"
+	"log"
 	"strconv"
 	"time"
 )
 
-func start_questions(questions []Question) map[string]string {
-	answers := make(map[string]string, len(questions))
-	for _, q := range questions {
+func start_questions(questions []Question) [][]string {
+	answers := make([][]string, 2)
+	for i := range answers {
+		answers[i] = make([]string, len(questions))
+	}
+	for i, q := range questions {
 		fmt.Println()
 		var answer string
 		var choices bool = len(q.Answers) > 0
@@ -30,9 +34,15 @@ func start_questions(questions []Question) map[string]string {
 						printError("Error: Invalid input. Out of range")
 						continue
 					}
-					answers[q.CSVName] = q.Answers[number-1]
+					answers[0][i] = q.CSVName
+					answers[1][i] = q.Answers[number-1]
 				} else {
-					answers[q.CSVName] = q.DefaultValue
+					defaultIndex, err := strconv.Atoi(q.DefaultValue)
+					if err != nil {
+						log.Fatalf("Invalid default value. Check config. Error: %s", err)
+					}
+					answers[0][i] = q.CSVName
+					answers[1][i] = q.Answers[defaultIndex-1]
 				}
 				break
 			}
@@ -41,12 +51,16 @@ func start_questions(questions []Question) map[string]string {
 			fmt.Printf("[Default: %s]\n", q.DefaultValue)
 			fmt.Scanf("%s", &answer)
 			if answer != "" {
-				answers[q.CSVName] = answer
+				answers[0][i] = q.CSVName
+				answers[1][i] = answer
 			} else {
-				answers[q.CSVName] = q.DefaultValue
+				answers[0][i] = q.CSVName
+				answers[1][i] = q.DefaultValue
 			}
 		}
 	}
-	answers["time"] = time.Now().Format("2006-01-02")
+	answers[0] = append(answers[0], "time")
+	answers[1] = append(answers[1], time.Now().Format("2006-01-02"))
+
 	return answers
 }
