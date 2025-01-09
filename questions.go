@@ -5,9 +5,12 @@ import (
 	"log"
 	"strconv"
 	"time"
+
+	"github.com/atiixx/daytracker-cli/types"
+	"github.com/atiixx/daytracker-cli/util"
 )
 
-func start_questions(questions []Question) [][]string {
+func start_questions(questions []types.Question) [][]string {
 	answers := make([][]string, 2)
 	for i := range answers {
 		answers[i] = make([]string, len(questions))
@@ -18,7 +21,7 @@ func start_questions(questions []Question) [][]string {
 		var choices bool = len(q.Answers) > 0
 
 		if choices {
-			printTitle("%s: \n", q.Title)
+			util.PrintTitle("%s: \n", q.Title)
 			for i, a := range q.Answers {
 				fmt.Printf("%d: %s\n", i+1, a)
 			}
@@ -28,10 +31,10 @@ func start_questions(questions []Question) [][]string {
 				if answer != "" {
 					number, err := strconv.Atoi(answer)
 					if err != nil {
-						printError("Error: Invalid input. Not a number")
+						util.PrintError("Error: Invalid input. Not a number")
 						continue
 					} else if number < 1 || number > len(q.Answers) {
-						printError("Error: Invalid input. Out of range")
+						util.PrintError("Error: Invalid input. Out of range")
 						continue
 					}
 					answers[0][i] = q.CSVName
@@ -47,7 +50,7 @@ func start_questions(questions []Question) [][]string {
 				break
 			}
 		} else {
-			printTitle("%s: ", q.Title)
+			util.PrintTitle("%s: ", q.Title)
 			fmt.Printf("[Default: %s]\n", q.DefaultValue)
 			fmt.Scanf("%s", &answer)
 			if answer != "" {

@@ -7,6 +7,7 @@ import (
 	"os"
 	"strings"
 
+	"github.com/atiixx/daytracker-cli/util"
 	"github.com/fatih/color"
 )
 
@@ -35,7 +36,7 @@ func createNewData(existingCSVData [][]string, answers [][]string) [][]string {
 	if len(existingCSVData) == 0 {
 		return answers
 	}
-	fieldsAreEqual := areSlicesEqual(existingCSVData[0], answers[0])
+	fieldsAreEqual := util.AreSlicesEqual(existingCSVData[0], answers[0])
 
 	if !fieldsAreEqual {
 		color.New(color.FgRed, color.Bold).Println("Your questions differ from the data that was collected until now.\nIf you proceed, all your previous data will be lost.\nContinue? [Default: 2]")
@@ -49,7 +50,7 @@ func createNewData(existingCSVData [][]string, answers [][]string) [][]string {
 			} else if answer == "1" {
 				return answers
 			} else {
-				printError("Error: Invalid input.")
+				util.PrintError("Error: Invalid input.")
 				continue
 			}
 		}
@@ -68,7 +69,7 @@ func createNewData(existingCSVData [][]string, answers [][]string) [][]string {
 				existingCSVData[len(existingCSVData)-1] = answers[1]
 				return existingCSVData
 			} else {
-				printError("Error: Invalid input.")
+				util.PrintError("Error: Invalid input.")
 				continue
 			}
 		}
