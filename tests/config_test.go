@@ -83,11 +83,21 @@ func TestLoadConfig(t *testing.T) {
 		t.Errorf("Expected question title 'How do you feel?', got '%s'", questions[0].Title)
 	}
 }
-func TestLoadConfig_InvalidFile(t *testing.T) {
-	// Call the function with a non-existent file
-	_, _, _, err := utils.LoadConfig("nonexistent.json")
-	if err == nil {
-		t.Fatal("Expected an error for missing file, but got nil")
+func TestLoadConfig_CreatesDefaultConfig(t *testing.T) {
+	tempConfigPath := "test_config.json"
+	defer os.Remove(tempConfigPath)
+
+	_, err := os.Stat(tempConfigPath)
+	if err == nil || !os.IsNotExist(err) {
+		t.Fatalf("Temporary config file %s should not exist, but it does", tempConfigPath)
+	}
+	_, _, _, err = utils.LoadConfig(tempConfigPath)
+	if err != nil {
+		t.Fatalf("Expected no error for missing file, but got: %v", err)
+	}
+	_, err = os.Stat(tempConfigPath)
+	if err != nil {
+		t.Fatalf("Expected config file to be created at %s, but it was not", tempConfigPath)
 	}
 }
 

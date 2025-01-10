@@ -1,7 +1,6 @@
 package types
 
 type Question struct {
-	ID           int      `json:"id"`
 	Title        string   `json:"title"`
 	Answers      []string `json:"answers"`
 	DefaultValue string   `json:"default_value"`

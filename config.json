@@ -1,6 +1,6 @@
 {
-  "csv_filepath": "./",
   "csv_filename": "daytracking.csv",
+  "csv_filepath": "./",
   "questions": [
     {
       "title": "Name",
@@ -10,67 +10,109 @@
     },
     {
       "title": "💕 How do you feel?",
-      "answers": ["Very good", "Good", "Okay", "Not good", "Bad", "Very bad"],
+      "answers": [
+        "Very good",
+        "Good",
+        "Okay",
+        "Not good",
+        "Bad",
+        "Very bad"
+      ],
       "default_value": "2",
       "csv": "feel"
     },
     {
       "title": "☀️ How is the weather?",
-      "answers": ["Sunny", "Grey", "Rainy", "Snow", "Mixed"],
+      "answers": [
+        "Sunny",
+        "Grey",
+        "Rainy",
+        "Snow",
+        "Mixed"
+      ],
       "default_value": "1",
       "csv": "weather"
     },
     {
       "title": "🏅 Did you exercise today?",
-      "answers": ["Yes", "No"],
+      "answers": [
+        "Yes",
+        "No"
+      ],
       "default_value": "1",
       "csv": "exercise"
     },
     {
       "title": "💤 How did you sleep last night?",
-      "answers": ["Good", "Okay", "Bad"],
+      "answers": [
+        "Good",
+        "Okay",
+        "Bad"
+      ],
       "default_value": "1",
       "csv": "sleep_quality"
     },
     {
       "title": "😴 How many hours did you sleep last night?",
-      "answers": ["1-6 hours", "7-9 hours", "more then 9 hours"],
+      "answers": [
+        "1-6 hours",
+        "7-9 hours",
+        "more then 9 hours"
+      ],
       "default_value": "2",
       "csv": "sleep_duration"
     },
     {
       "title": "📗 Did you read a book?",
-      "answers": ["Yes", "No"],
+      "answers": [
+        "Yes",
+        "No"
+      ],
       "default_value": "1",
       "csv": "book"
     },
     {
       "title": "🎬 Did you watch a movie or tv show?",
-      "answers": ["Yes", "No"],
+      "answers": [
+        "Yes",
+        "No"
+      ],
       "default_value": "1",
       "csv": "movie"
     },
     {
       "title": "🎮 Did you play games?",
-      "answers": ["Yes", "No"],
+      "answers": [
+        "Yes",
+        "No"
+      ],
       "default_value": "1",
       "csv": "game"
     },
     {
       "title": "🏢 Did you do any work?",
-      "answers": ["Yes", "No"],
+      "answers": [
+        "Yes",
+        "No"
+      ],
       "default_value": "1",
       "csv": "work"
     },
     {
       "title": "💻 Did you work on a productive hobby?",
-      "answers": ["Yes", "No"],
+      "answers": [
+        "Yes",
+        "No"
+      ],
       "default_value": "1",
       "csv": "productive"
     },
     {
-      "title": "🔥 Was it hot today (> 20 C)?",
-      "answers": ["Yes", "No"],
+      "title": "🔥 Was it hot today (\u003e 20 C)?",
+      "answers": [
+        "Yes",
+        "No"
+      ],
       "default_value": "1",
       "csv": "hot"
     }

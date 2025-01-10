@@ -1,0 +1,25 @@
+{
+  "csv_filename": "daytracking.csv",
+  "csv_filepath": "./",
+  "questions": [
+    {
+      "title": "Name",
+      "answers": [],
+      "default_value": "John Smith",
+      "csv": "name"
+    },
+    {
+      "title": "💕 How do you feel?",
+      "answers": [
+        "Very good",
+        "Good",
+        "Okay",
+        "Not good",
+        "Bad",
+        "Very bad"
+      ],
+      "default_value": "2",
+      "csv": "feel"
+    }
+  ]
+}
