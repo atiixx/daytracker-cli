@@ -12,12 +12,12 @@ import (
 )
 
 func HandleCSV(answers [][]string, filename string, filepath string) {
-	var existingCSVData [][]string = readExistingCSV(filename, filepath)
-	var newData [][]string = createNewData(existingCSVData, answers)
-	saveDataToCSV(newData, filename, filepath)
+	var existingCSVData [][]string = ReadExistingCSV(filename, filepath)
+	var newData [][]string = CreateNewData(existingCSVData, answers)
+	SaveDataToCSV(newData, filename, filepath)
 }
 
-func readExistingCSV(filename string, filepath string) [][]string {
+func ReadExistingCSV(filename string, filepath string) [][]string {
 	csvBytes, err := os.ReadFile(filepath + filename)
 	if err != nil {
 		var emptyData [][]string
@@ -31,7 +31,7 @@ func readExistingCSV(filename string, filepath string) [][]string {
 	return csvData
 }
 
-func createNewData(existingCSVData [][]string, answers [][]string) [][]string {
+func CreateNewData(existingCSVData [][]string, answers [][]string) [][]string {
 
 	if len(existingCSVData) == 0 {
 		return answers
@@ -77,7 +77,7 @@ func createNewData(existingCSVData [][]string, answers [][]string) [][]string {
 	return append(existingCSVData, answers[1])
 }
 
-func saveDataToCSV(newData [][]string, filename, filepath string) {
+func SaveDataToCSV(newData [][]string, filename, filepath string) {
 	f, err := os.Create(filepath + filename)
 	if err != nil {
 		log.Fatal(err)
