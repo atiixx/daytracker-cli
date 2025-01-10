@@ -4,7 +4,7 @@ import (
 	"os"
 	"testing"
 
-	"github.com/atiixx/daytracker-cli/util"
+	"github.com/atiixx/daytracker-cli/internal/utils"
 )
 
 //Test if config gets loaded and has the right amount of questions, filename and filepath.
@@ -79,7 +79,7 @@ func TestLoadConfig(t *testing.T) {
 		t.Fatalf("Could not create test file: %v", err)
 	}
 	defer os.Remove(tempFile)
-	filename, filepath, questions, err := util.Load_config(tempFile)
+	filename, filepath, questions, err := utils.LoadConfig(tempFile)
 	if err != nil {
 		t.Fatalf("Unexpected error: %v", err)
 	}
@@ -99,7 +99,7 @@ func TestLoadConfig(t *testing.T) {
 }
 func TestLoadConfig_InvalidFile(t *testing.T) {
 	// Call the function with a non-existent file
-	_, _, _, err := util.Load_config("nonexistent.json")
+	_, _, _, err := utils.LoadConfig("nonexistent.json")
 	if err == nil {
 		t.Fatal("Expected an error for missing file, but got nil")
 	}
@@ -112,7 +112,7 @@ func TestLoadConfig_InvalidJSON(t *testing.T) {
 		t.Fatalf("Could not create test file: %v", err)
 	}
 	defer os.Remove(tempFile)
-	_, _, _, err = util.Load_config(tempFile)
+	_, _, _, err = utils.LoadConfig(tempFile)
 	if err == nil {
 		t.Fatal("Expected an error for invalid JSON, but got nil")
 	}
@@ -124,7 +124,7 @@ func TestLoadingConfig_MissingFilepath(t *testing.T) {
 		t.Fatalf("Could not create test file: %v", err)
 	}
 	defer os.Remove(tempFile)
-	_, _, _, err = util.Load_config(tempFile)
+	_, _, _, err = utils.LoadConfig(tempFile)
 	if err == nil {
 		t.Fatalf("Expected an Error for missing filepath but got nil")
 	}
@@ -137,7 +137,7 @@ func TestLoadingConfig_MissingFilename(t *testing.T) {
 		t.Fatalf("Could not create test file: %v", err)
 	}
 	defer os.Remove(tempFile)
-	_, _, _, err = util.Load_config(tempFile)
+	_, _, _, err = utils.LoadConfig(tempFile)
 	if err == nil {
 		t.Fatalf("Expected an Error for missing filename but got nil")
 	}
@@ -150,7 +150,7 @@ func TestLoadingConfig_MissingQuestions(t *testing.T) {
 		t.Fatalf("Could not create test file: %v", err)
 	}
 	defer os.Remove(tempFile)
-	_, _, _, err = util.Load_config(tempFile)
+	_, _, _, err = utils.LoadConfig(tempFile)
 	if err == nil {
 		t.Fatalf("Expected an Error for missing questions but got nil")
 	}
@@ -163,7 +163,7 @@ func TestLoadingConfig_EmptyConfig(t *testing.T) {
 		t.Fatalf("Could not create test file: %v", err)
 	}
 	defer os.Remove(tempFile)
-	_, _, _, err = util.Load_config(tempFile)
+	_, _, _, err = utils.LoadConfig(tempFile)
 	if err == nil {
 		t.Fatalf("Expected an Error for missing configdata but got nil")
 	}

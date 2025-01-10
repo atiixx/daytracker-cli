@@ -4,8 +4,9 @@ import (
 	"fmt"
 	"log"
 
-	"github.com/atiixx/daytracker-cli/types"
-	"github.com/atiixx/daytracker-cli/util"
+	"github.com/atiixx/daytracker-cli/internal/handlers"
+	"github.com/atiixx/daytracker-cli/internal/types"
+	"github.com/atiixx/daytracker-cli/internal/utils"
 )
 
 func main() {
@@ -14,10 +15,10 @@ func main() {
 	var questions []types.Question
 	var err error
 	config_filepath = "./config.json"
-	csv_filename, csv_filepath, questions, err = util.Load_config(config_filepath)
+	csv_filename, csv_filepath, questions, err = utils.LoadConfig(config_filepath)
 	if err != nil {
 		log.Fatal(err)
 	}
-	var selected_answers [][]string = start_questions(questions)
-	HandleCSV(selected_answers, csv_filename, csv_filepath)
+	var selected_answers [][]string = handlers.PromptUserQuestions(questions)
+	handlers.HandleCSV(selected_answers, csv_filename, csv_filepath)
 }
