@@ -7,20 +7,6 @@ import (
 	"github.com/atiixx/daytracker-cli/internal/utils"
 )
 
-//Test if config gets loaded and has the right amount of questions, filename and filepath.
-//Should catch empty filepath, filename or questions
-//Test if it gets handled when no config gets loaded
-
-//Test if default values are being applied
-//Test if answers get applied
-//Test if invalid inputs get handled
-
-// Test if CSV File is getting created at filepath with filename when none exists
-// Test if CSV File gets loaded when one exists
-// Test if CSV File data gets loaded correctly
-// Test if answers get append correctly to csv data
-// Test if CSV File gets saved correctly at the same place as filepath and filename
-// Test if CSV File overrides existing one
 var configContent string = `{
   "csv_filepath": "/tmp",
   "csv_filename": "testfile.csv",
